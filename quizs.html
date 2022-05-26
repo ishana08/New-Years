@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #E9F1FC;
+            text-align: center;
+        }
+        .nav{
+            height:60px;
+            background-color: #A8DADC;
+            display:flex;
+            align-items: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        .navlinks{
+            color:white;
+            display:flex;
+            margin-left: auto;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        li{
+            font-weight:bolder;
+            list-style: none;
+            padding:10px;
+            padding-right: 10px;
+            padding-left:10px;
+        }
+        h1{
+            color:#D51E32;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top:15px;
+        }
+        h3{
+            padding:5px;
+            font-size:23px
+        }
+        label{
+            font-size: 22px;;
+        }
+        h2{
+            padding:10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="navlinks">
+        <a href="ny.htm"><u>
+            <li>
+                Home
+            </li>
+        </a></u>
+        <a href="quizs.html"><u>
+            <li>
+                Quiz
+            </li>
+        </a></u>
+        <a href="gallery.html"><u>
+            <li>
+                Gallery
+            </li>
+        </a></u>
+        <a href="cultures.html"><u>
+            <li>
+                Cultures
+            </li>
+        </a></u>
+        <a href="resolution.html"><u>
+            <li>
+                Resolution
+            </li></u>
+        </a>
+        </ul>
+    </div>
+    <h1>Quiz</h1>
+    <h3>1)Which civilization introduced wishing one another a 'Happy New Year' on January 1st?</h3>
+    <label for="">Roman</label>
+    <input type="radio" name="one" value="Roman">
+    <label for="">Jewish</label>
+    <input type="radio" name="one" value="Jewish"><br><br>
+
+    <h3>2)How large is the Times Square New Year's Eve Ball in diameter?</h3>
+    <label for="">10 feet</label>
+    <input type="radio" name="two" value="10feet">
+    <label for="">12 feet</label>
+    <input type="radio" name="two" value="12feet"><br><br>
+
+    <h3>3)Which country refers to New Year's Eve as Hogmanay?</h3>
+    <label for="">Scotland</label>
+    <input type="radio" name="three" value="Scotland">
+    <label for="">Ireland</label>
+    <input type="radio" name="three" value="Ireland"><br><br>
+
+    <h3>4)Which place was the last to celebrate the new millennium on Jan. 1, 2000?</h3>
+    <label for="">Hawaii</label>
+    <input type="radio" name="four" value="Hawaii">
+    <label for="">Antartica</label>
+    <input type="radio" name="four" value="Antartica"><br><br>
+
+    <h3>5)During fireworks shows, what determines the pattern of a firework explosion?</h3>
+    <label for="">The amount of Gunpowder</label>
+    <input type="radio" name="five" value="The amount of Gunpowder">
+    <label for="">The arrangements of star pellets inside the shell</label>
+    <input type="radio" name="five" value="The arrangements of star pellets inside the shell"><br><br>
+
+    <button onclick="reveal()">Reveal Answer</button>
+     
+    <template>
+        <h1>Answers</h1>
+        <h2>1)Roman<br>
+        2)12 feet<br>
+        3)Scotland<br>
+        4)Hawaii<br>
+        5)The arrangements of star pellets inside the shell</h2>
+    </template>
+
+    <h1>Your score:</h1>
+    <h1 id="score"></h1>
+</body>
+<script>
+    var score=0;
+    function reveal(){
+        var one=document.querySelector('input[name="one"]:checked').value;
+        if (one=="Roman"){
+            score=score+1;
+        }
+    
+        var two=document.querySelector('input[name="two"]:checked').value;
+        if (two=="12feet"){
+            score=score+1;
+        }
+    
+        var three=document.querySelector('input[name="three"]:checked').value;
+        if (three=="Scotland"){
+            score=score+1;
+        }
+    
+        var four=document.querySelector('input[name="four"]:checked').value;
+        if (four=="Hawaii"){
+            score=score+1
+        }
+    
+        var five=document.querySelector('input[name="five"]:checked').value;
+        if (five=="The arrangements of star pellets inside the shell"){
+            score=score+1
+        }
+    
+        console.log(score);
+        var show=document.getElementsByTagName("template")[0];
+        var clone=show.content.cloneNode(true);
+        document.body.appendChild(clone);
+        document.getElementById("score").innerText=score;
+    }
+    </script>
+</html>
